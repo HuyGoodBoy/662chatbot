@@ -61,7 +61,7 @@ function ChatBot(props) {
     SetPromptInput("");
     
     try {
-      const response = await fetch(`http://103.77.241.42/rag?q=${promptInput}`, {
+      const response = await fetch(`https://103.77.241.42/rag?q=${promptInput}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -73,8 +73,8 @@ function ChatBot(props) {
       }
 
       const result = await response.json();
-      SetChatHistory(result.chat_history);
-      SetDataChat([...dataChat, ["user", [promptInput, null]], ["bot", [result.response, null]]]);
+      // SetChatHistory(result.chat_history);
+      SetDataChat([...dataChat, ["user", [promptInput, null]], ["bot", [result.result, null]]]);
       
     } catch (error) {
       console.error("Error:", error);
@@ -117,29 +117,6 @@ function ChatBot(props) {
   return (
     <div className="bg-gradient-to-r from-blue-50 to-purple-100 h-[85vh] ">
       <div className="hidden lg:block  drawer-side absolute w-64 h-[20vh] left-3 mt-2 drop-shadow-md">
-        <div className="menu p-4 w-full min-h-full bg-gray-50 text-base-content rounded-2xl mt-3  overflow-auto scroll-y-auto max-h-[80vh]">
-          {/* Sidebar content here */}
-          <ul className="menu text-sm">
-            <h2 className="font-bold mb-2 bg-[linear-gradient(90deg,hsl(var(--s))_0%,hsl(var(--sf))_9%,hsl(var(--pf))_42%,hsl(var(--p))_47%,hsl(var(--a))_100%)] bg-clip-text will-change-auto [-webkit-text-fill-color:transparent] [transform:translate3d(0,0,0)] motion-reduce:!tracking-normal max-[1280px]:!tracking-normal [@supports(color:oklch(0_0_0))]:bg-[linear-gradient(90deg,hsl(var(--s))_4%,color-mix(in_oklch,hsl(var(--sf)),hsl(var(--pf)))_22%,hsl(var(--p))_45%,color-mix(in_oklch,hsl(var(--p)),hsl(var(--a)))_67%,hsl(var(--a))_100.2%)] ">
-              Lịch sử trò chuyện
-            </h2>
-            {chatHistory.length == 0 ? (
-              <p className="text-sm text-gray-500">
-                Hiện chưa có cuộc hội thoại nào
-              </p>
-            ) : (
-              ""
-            )}
-            {chatHistory.map((mess, i) => (
-              <li key={i}>
-                <p>
-                  <FontAwesomeIcon icon={faMessage} />
-                  {mess.length < 20 ? mess : mess.slice(0, 20) + "..."}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
       <div className="hidden lg:block  drawer-side absolute w-64 h-[20vh] mt-2 right-3 drop-shadow-md">
         <div
@@ -199,7 +176,7 @@ function ChatBot(props) {
           rounded-3xl border-2 md:w-[50%] md:p-3 p-1  w-full overflow-auto scroll-y-auto h-[80%] "
         >
           {dataChat.map((dataMessages, i) =>
-            dataMessages[0] === "start" ? (
+            dataMessages[0] === "start" || dataMessages[0] ==="bot" ? (
               <div className="chat chat-start drop-shadow-md" key={i}>
                 <div className="chat-image avatar">
                   <div className="w-10 rounded-full border-2 border-blue-500">
