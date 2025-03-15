@@ -18,7 +18,7 @@ function HomePage() {
             và chính xác nhất!
           </p>
           <Link to="/ai-law-front-end/chat">
-            <button className="btn btn-info">Bắt đầu ngay</button>
+            <button className="btn btn-info">Bắt đầu ngay!</button>
           </Link>
         </div>
       </div>
