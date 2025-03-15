@@ -27,22 +27,22 @@ function NavBar() {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link to="/">
+              <Link to="/ai-law-front-end">
                 <a>Trang chủ</a>
               </Link>
             </li>
             <li>
-              <Link to="/chat">
+              <Link to="/ai-law-front-end/chat">
                 <a>Trò chuyện</a>
               </Link>
             </li>
             <li>
-              <Link to="/faq">
+              <Link to="/ai-law-front-end/faq">
               <a>FAQs</a>
               </Link>
             </li>
             <li>
-              <Link to="/issue">
+              <Link to="/ai-law-front-end/issue">
               <a>Báo lỗi/ Góp ý</a>
               </Link>
             </li>
@@ -55,16 +55,16 @@ function NavBar() {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 font-semibold ">
           <li className='p-1'>
-              <button onClick={()=>navigate("/")} className={location.pathname=="/"?"btn btn-outline btn-primary":""}>Trang chủ</button>
+              <button onClick={()=>navigate("/ai-law-front-end")} className={location.pathname=="/ai-law-front-end"?"btn btn-outline btn-primary":""}>Trang chủ</button>
           </li>
           <li className='p-1'>
-              <button onClick={()=>navigate("/chat")} className={location.pathname=="/chat"?"btn btn-outline btn-primary":""}>Trò chuyện</button>
+              <button onClick={()=>navigate("/ai-law-front-end/chat")} className={location.pathname=="/ai-law-front-end/chat"?"btn btn-outline btn-primary":""}>Trò chuyện</button>
           </li>
           <li className='p-1'>
-              <button onClick={()=>navigate("/faq")} className={location.pathname=="/faq"?"btn btn-outline btn-primary":""}>FAQs</button>
+              <button onClick={()=>navigate("/ai-law-front-end/faq")} className={location.pathname=="/ai-law-front-end/faq"?"btn btn-outline btn-primary":""}>FAQs</button>
           </li>
           <li className='p-1'>
-              <button onClick={()=>navigate("/issue")} className={location.pathname=="/issue"?"btn btn-outline btn-primary":""}>Báo lỗi/ Góp ý</button>
+              <button onClick={()=>navigate("/ai-law-front-end/issue")} className={location.pathname=="/ai-law-front-end/issue"?"btn btn-outline btn-primary":""}>Báo lỗi/ Góp ý</button>
           </li>
         </ul>
       </div>

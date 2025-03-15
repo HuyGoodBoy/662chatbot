@@ -57,6 +57,7 @@ function ChatBot(props) {
     if (promptInput.trim() === "") return;
     
     SetIsLoad(true);
+    SetTimeOfRequest(0);
     SetDataChat([...dataChat, ["user", [promptInput, null]]]);
     SetPromptInput("");
     
@@ -173,7 +174,7 @@ function ChatBot(props) {
           mt-5 text-sm 
           scrollbar-thin scrollbar-thumb-gray-300 bg-white  
           scrollbar-thumb-rounded-full scrollbar-track-rounded-full
-          rounded-3xl border-2 md:w-[50%] md:p-3 p-1  w-full overflow-auto scroll-y-auto h-[80%] "
+          rounded-3xl border-2 md:w-[50%] md:p-3 p-1  w-full overflow-auto scroll-y-auto h-[90%] "
         >
           {dataChat.map((dataMessages, i) =>
             dataMessages[0] === "start" || dataMessages[0] ==="bot" ? (
@@ -219,7 +220,7 @@ function ChatBot(props) {
                   aria-label="Loading Spinner"
                   data-testid="loader"
                 />
-                <p className="text-xs font-medium">{timeOfRequest + "/60s"}</p>
+                {/* <p className="text-xs font-medium">{timeOfRequest + "/60s"}</p> */}
               </div>
             </div>
           ) : (
