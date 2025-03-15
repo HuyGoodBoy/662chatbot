@@ -17,7 +17,7 @@ function HomePage() {
             Giúp bạn giải đáp thắc mắc, tra cứu thông tin về luật Bảo Hiểm Xã Hội một cách nhanh chóng
             và chính xác nhất!
           </p>
-          <Link to="/ai-law-front-end/chat">
+          <Link to="/662chatbot/chat">
             <button className="btn btn-info">Bắt đầu ngay!</button>
           </Link>
         </div>

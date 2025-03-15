@@ -18,10 +18,10 @@ function App() {
       <div className="overflow-hidden">
         <NavBar />
         <Routes>
-          <Route path="/ai-law-front-end" element={<HomePage />} />
-          <Route path="/ai-law-front-end/chat" element={<ChatBot />} />
-          <Route path="/ai-law-front-end/issue" element={<IssuePage />} />
-          <Route path="/ai-law-front-end/faq" element={<FAQPage />} />
+          <Route path="/662chatbot" element={<HomePage />} />
+          <Route path="/662chatbot/chat" element={<ChatBot />} />
+          <Route path="/662chatbot/issue" element={<IssuePage />} />
+          <Route path="/662chatbot/faq" element={<FAQPage />} />
         </Routes>
       </div>
     </BrowserRouter>
