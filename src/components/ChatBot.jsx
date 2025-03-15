@@ -61,15 +61,11 @@ function ChatBot(props) {
     SetPromptInput("");
     
     try {
-      const response = await fetch("http://localhost:8000/chat", {
-        method: "POST",
+      const response = await fetch(`http://103.77.241.42/rag?q=${promptInput}`, {
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          prompt: promptInput,
-          chat_history: chatHistory
-        }),
       });
 
       if (!response.ok) {
