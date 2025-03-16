@@ -11,7 +11,7 @@ function ChatBot(props) {
   let [promptInput, SetPromptInput] = useState("");
   let [chatHistory, SetChatHistory] = useState([]);
 
-  const commonQuestions=[
+  const commonQuestions = [
     "Vui lòng cho biết loại Hợp đồng nào thì không bắt buộc tham gia BHXH, BHYT, BHTN?",
     "Từ ngày 01/01/2016, mức đóng BHXH bằng tổng lương và phụ cấp. Những phụ cấp nào bắt buộc phải đóng BHXH?",
     "Năm 2016 doanh nghiệp phải trích nộp các loại bảo hiểm trên mức lương nào?",
@@ -55,12 +55,12 @@ function ChatBot(props) {
 
   const SendMessageChat = async () => {
     if (promptInput.trim() === "") return;
-    
+
     SetIsLoad(true);
     SetTimeOfRequest(0);
     SetDataChat([...dataChat, ["user", [promptInput, null]]]);
     SetPromptInput("");
-    
+
     try {
       const response = await fetch(`https://103.77.241.42/rag?q=${promptInput}`, {
         method: "GET",
@@ -76,7 +76,7 @@ function ChatBot(props) {
       const result = await response.json();
       // SetChatHistory(result.chat_history);
       SetDataChat([...dataChat, ["user", [promptInput, null]], ["bot", [result.result, null]]]);
-      
+
     } catch (error) {
       console.error("Error:", error);
       SetDataChat([
@@ -85,7 +85,7 @@ function ChatBot(props) {
         ["bot", ["Xin lỗi, đã có lỗi xảy ra. Vui lòng thử lại sau.", null]],
       ]);
     }
-    
+
     SetIsLoad(false);
   };
 
@@ -105,7 +105,7 @@ function ChatBot(props) {
       title:
         sourceType == "wiki"
           ? sources.metadata.title
-          : sources.metadata.page==undefined? "Sổ tay sinh viên 2023" : "Trang " + sources.metadata.page + " (sổ tay SV)",
+          : sources.metadata.page == undefined ? "Sổ tay sinh viên 2023" : "Trang " + sources.metadata.page + " (sổ tay SV)",
       source: sourceType == "wiki" ? "Wikipedia" : "Đại học Nguyễn Tất Thành",
       url:
         sourceType == "wiki"
@@ -177,7 +177,7 @@ function ChatBot(props) {
           rounded-3xl border-2 md:w-[50%] md:p-3 p-1  w-full overflow-auto scroll-y-auto h-[90%] "
         >
           {dataChat.map((dataMessages, i) =>
-            dataMessages[0] === "start" || dataMessages[0] ==="bot" ? (
+            dataMessages[0] === "start" || dataMessages[0] === "bot" ? (
               <div className="chat chat-start drop-shadow-md" key={i}>
                 <div className="chat-image avatar">
                   <div className="w-10 rounded-full border-2 border-blue-500">
@@ -186,7 +186,7 @@ function ChatBot(props) {
                 </div>
                 <div className="chat-bubble chat-bubble-info colo break-words ">
                   <TypeAnimation
-                    style={{ whiteSpace: 'pre-line' }} 
+                    style={{ whiteSpace: 'pre-line' }}
                     sequence={[
                       dataMessages[1][0],
                       () => SetIsGen(false),

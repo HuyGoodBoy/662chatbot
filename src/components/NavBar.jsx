@@ -1,6 +1,6 @@
-import { useLocation,useNavigate,Link } from 'react-router-dom';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 function NavBar() {
-  const navigate = useNavigate ();
+  const navigate = useNavigate();
   const location = useLocation();
   return (
     <div className="navbar bg-base-100 w-[95%] ">
@@ -38,40 +38,37 @@ function NavBar() {
             </li>
             <li>
               <Link to="/662chatbot/faq">
-              <a>FAQs</a>
+                <a>FAQs</a>
               </Link>
             </li>
             <li>
               <Link to="/662chatbot/issue">
-              <a>Báo lỗi/ Góp ý</a>
+                <a>Báo lỗi/ Góp ý</a>
               </Link>
             </li>
           </ul>
         </div>
-        <a  onClick={()=>navigate("/")}  className="btn btn-ghost normal-case font-extrabold text-xl bg-[linear-gradient(90deg,hsl(var(--s))_0%,hsl(var(--sf))_9%,hsl(var(--pf))_42%,hsl(var(--p))_47%,hsl(var(--a))_100%)] bg-clip-text will-change-auto [-webkit-text-fill-color:transparent] [transform:translate3d(0,0,0)] motion-reduce:!tracking-normal max-[1280px]:!tracking-normal [@supports(color:oklch(0_0_0))]:bg-[linear-gradient(90deg,hsl(var(--s))_4%,color-mix(in_oklch,hsl(var(--sf)),hsl(var(--pf)))_22%,hsl(var(--p))_45%,color-mix(in_oklch,hsl(var(--p)),hsl(var(--a)))_67%,hsl(var(--a))_100.2%)]">
-        662Chatbot
+        <a onClick={() => navigate("/")} className="btn btn-ghost normal-case font-extrabold text-xl bg-[linear-gradient(90deg,hsl(var(--s))_0%,hsl(var(--sf))_9%,hsl(var(--pf))_42%,hsl(var(--p))_47%,hsl(var(--a))_100%)] bg-clip-text will-change-auto [-webkit-text-fill-color:transparent] [transform:translate3d(0,0,0)] motion-reduce:!tracking-normal max-[1280px]:!tracking-normal [@supports(color:oklch(0_0_0))]:bg-[linear-gradient(90deg,hsl(var(--s))_4%,color-mix(in_oklch,hsl(var(--sf)),hsl(var(--pf)))_22%,hsl(var(--p))_45%,color-mix(in_oklch,hsl(var(--p)),hsl(var(--a)))_67%,hsl(var(--a))_100.2%)]">
+          662Chatbot
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 font-semibold ">
           <li className='p-1'>
-              <button onClick={()=>navigate("/662chatbot")} className={location.pathname=="/662chatbot"?"btn btn-outline btn-primary":""}>Trang chủ</button>
+            <button onClick={() => navigate("/662chatbot")} className={location.pathname == "/662chatbot" ? "btn btn-outline btn-primary" : ""}>Trang chủ</button>
           </li>
           <li className='p-1'>
-              <button onClick={()=>navigate("/662chatbot/chat")} className={location.pathname=="/662chatbot/chat"?"btn btn-outline btn-primary":""}>Trò chuyện</button>
+            <button onClick={() => navigate("/662chatbot/chat")} className={location.pathname == "/662chatbot/chat" ? "btn btn-outline btn-primary" : ""}>Trò chuyện</button>
           </li>
           <li className='p-1'>
-              <button onClick={()=>navigate("/662chatbot/faq")} className={location.pathname=="/662chatbot/faq"?"btn btn-outline btn-primary":""}>FAQs</button>
+            <button onClick={() => navigate("/662chatbot/faq")} className={location.pathname == "/662chatbot/faq" ? "btn btn-outline btn-primary" : ""}>FAQs</button>
           </li>
           <li className='p-1'>
-              <button onClick={()=>navigate("/662chatbot/issue")} className={location.pathname=="/662chatbot/issue"?"btn btn-outline btn-primary":""}>Báo lỗi/ Góp ý</button>
+            <button onClick={() => navigate("/662chatbot/issue")} className={location.pathname == "/662chatbot/issue" ? "btn btn-outline btn-primary" : ""}>Báo lỗi/ Góp ý</button>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-        {/* <a className="btn btn-outline btn-primary md:flex hidden">
-            Đăng nhập
-          </a> */}
       </div>
     </div>
   );
